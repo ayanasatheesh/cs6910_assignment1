@@ -22,7 +22,6 @@ def random_initialisation(n_hidden,n_neurons,n_inputneurons,n_outputneurons):
 
   return (W,b)
 
-
 def xavier_initialisation(n_hidden,n_neurons,n_inputneurons,n_outputneurons):
   W=[np.random.randn(n_neurons,n_inputneurons)*np.sqrt(2/(n_neurons+n_inputneurons)) if i==0  else np.random.randn(n_neurons,n_neurons)*np.sqrt(2/(n_neurons+n_neurons)) for i in range(n_hidden)]
   Wo=np.random.randn(n_outputneurons,n_neurons)*np.sqrt(2/(n_outputneurons+n_neurons))
@@ -32,7 +31,7 @@ def xavier_initialisation(n_hidden,n_neurons,n_inputneurons,n_outputneurons):
   return (W,b)
 
 
-#initiliasing u matrix for both W and b as zero matrix for all the layers
+#initiliasing u matrix for both W and b as zero matrix for all the layers.
 def initialise_u(n_hidden,n_neurons,n_inputneurons,n_outputneurons):
   u_W=[np.zeros((n_neurons,n_inputneurons)) if i==0  else np.zeros((n_neurons,n_neurons)) for i in range(n_hidden)]
   u_Wo=np.zeros((n_outputneurons,n_neurons))
@@ -692,6 +691,7 @@ if __name__ == "__main__":
     y_one_val=one_hot_vector(Y_validate,Y_validate.shape[0])
    
     run=wandb.init(project="assignment1",entity=entityname,name=displayname)
+    wandb.run.name="ep_{}_hl_{}_nn_{}_lr_{}_ac_{}_op_{}_in_{}_bs_{}_wd_{}".format(epoch,n_layers,n_neurons,eta,activation_fn,optimiser,initialisation, batch_size, wgt_dec)
     Loss,W,b,v_loss=network_train(epoch,eta,n_layers,activation_fn,n_neurons,initialisation,trainData,Y,batch_size,wgt_dec,optimiser,n_inputneurons,n_outputneurons,n_classes,beta,beta1,beta2,epsilon,y_one,y_one_val,loss)
     
 
