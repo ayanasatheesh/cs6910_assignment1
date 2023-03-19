@@ -4,7 +4,7 @@
 2. The repository contains the following:
 - network.ipynb notebook where i have coded the Questions 1,2,3,4,5,6,7,8 and it also contains the output that i have got.
 - sweep.ipnyb notebook which contains the sweep performed along with the output( Questions 4,5,6). The plots are available in wandb report.
-- the run command which i have used to take arguments and train and test using command line arguments.
+- the run command notebook which i have used to take arguments and train and test using command line arguments.( and the final one was run on default arguments which gave best accuracy)
 - the mnist runcommand basically contains the run commands which was used for Question 10 to find out accuracy on MNIST dataset.
 - train.py which can be used to train and test the model.
 
